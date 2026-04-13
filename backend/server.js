@@ -11,8 +11,12 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: "https://family-survey-frontend.onrender.com/"
+  origin: [
+    "https://family-survey-frontend.onrender.com"
+  ],
+  credentials: true
 }));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
