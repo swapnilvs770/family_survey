@@ -84,7 +84,8 @@ const AddRecord = () => {
         // Reset form
         setFormData({
           family_id: '',
-          name: '',
+          name_en: '',
+          name_mr: '',
           gender: 'Male',
           relation: '',
           dob: '',
@@ -104,7 +105,8 @@ const AddRecord = () => {
   const handleReset = () => {
     setFormData({
       family_id: '',
-      name: '',
+      name_en: '',
+      name_mr: '',
       gender: 'Male',
       relation: '',
       dob: '',
@@ -113,18 +115,18 @@ const AddRecord = () => {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-6 lg:p-8">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-8"
+        className="mb-6 sm:mb-8"
       >
-        <h1 className="text-4xl font-bold text-white mb-2">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
           Add New Record
-          <span className="text-gold-500 ml-3">नवीन नोंदणी</span>
+          <span className="text-gold-500 ml-2 sm:ml-3 block sm:inline mt-1 sm:mt-0">नवीन नोंदणी</span>
         </h1>
-        <p className="text-gray-400">Add a new family member to the survey</p>
+        <p className="text-gray-400 text-sm sm:text-base">Add a new family member to the survey</p>
       </motion.div>
 
       {/* Form Card */}
@@ -132,14 +134,14 @@ const AddRecord = () => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.1 }}
-        className="max-w-2xl mx-auto bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 shadow-2xl border border-gold-600/30"
+        className="max-w-2xl mx-auto bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg sm:rounded-xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-gold-600/30"
       >
         {/* Message */}
         {message.text && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className={`mb-6 p-4 rounded-lg ${message.type === 'success'
+            className={`mb-4 sm:mb-6 p-3 sm:p-4 rounded-lg text-sm sm:text-base ${message.type === 'success'
               ? 'bg-green-600/20 border border-green-500 text-green-300'
               : 'bg-red-600/20 border border-red-500 text-red-300'
               }`}
@@ -148,10 +150,10 @@ const AddRecord = () => {
           </motion.div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
           {/* Family ID */}
           <div>
-            <label className="block text-gray-300 font-medium mb-2">
+            <label className="block text-gray-300 font-medium mb-2 text-sm sm:text-base">
               Family ID <span className="text-gold-500">कुटुंब क्रमांक</span>
             </label>
             <input
@@ -161,16 +163,14 @@ const AddRecord = () => {
               onChange={handleChange}
               required
               min="1"
-              className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:border-gold-500 focus:ring-2 focus:ring-gold-500/50 transition-all outline-none"
+              className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white text-sm sm:text-base focus:border-gold-500 focus:ring-2 focus:ring-gold-500/50 transition-all outline-none"
               placeholder="Enter family number"
             />
           </div>
 
-          {/* Name */}
-          {/* Name */}
           {/* English Name */}
           <div>
-            <label className="block text-gray-300 font-medium mb-2">
+            <label className="block text-gray-300 font-medium mb-2 text-sm sm:text-base">
               Full Name (English)
             </label>
             <input
@@ -178,14 +178,14 @@ const AddRecord = () => {
               value={formData.name_en}
               onChange={handleNameChange}
               required
-              className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:border-gold-500 focus:ring-2 focus:ring-gold-500/50"
+              className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white text-sm sm:text-base focus:border-gold-500 focus:ring-2 focus:ring-gold-500/50 transition-all outline-none"
               placeholder="Enter full name"
             />
           </div>
 
           {/* Marathi Name */}
           <div>
-            <label className="block text-gray-300 font-medium mb-2">
+            <label className="block text-gray-300 font-medium mb-2 text-sm sm:text-base">
               पूर्ण नाव (Marathi)
             </label>
             <input
@@ -194,16 +194,16 @@ const AddRecord = () => {
               onChange={(e) =>
                 setFormData({ ...formData, name_mr: e.target.value })
               }
-              className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:border-gold-500 focus:ring-2 focus:ring-gold-500/50"
+              className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white text-sm sm:text-base focus:border-gold-500 focus:ring-2 focus:ring-gold-500/50 transition-all outline-none"
               placeholder="Auto translated..."
             />
           </div>
 
           {/* Gender and DOB Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {/* Gender */}
             <div>
-              <label className="block text-gray-300 font-medium mb-2">
+              <label className="block text-gray-300 font-medium mb-2 text-sm sm:text-base">
                 Gender <span className="text-gold-500">लिंग</span>
               </label>
               <select
@@ -211,7 +211,7 @@ const AddRecord = () => {
                 value={formData.gender}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:border-gold-500 focus:ring-2 focus:ring-gold-500/50 transition-all outline-none"
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white text-sm sm:text-base focus:border-gold-500 focus:ring-2 focus:ring-gold-500/50 transition-all outline-none"
               >
                 <option value="Male">Male (पुरुष)</option>
                 <option value="Female">Female (स्त्री)</option>
@@ -220,7 +220,7 @@ const AddRecord = () => {
 
             {/* Date of Birth */}
             <div>
-              <label className="block text-gray-300 font-medium mb-2">
+              <label className="block text-gray-300 font-medium mb-2 text-sm sm:text-base">
                 Date of Birth <span className="text-gold-500">जन्मतारीख</span>
               </label>
               <input
@@ -230,14 +230,14 @@ const AddRecord = () => {
                 onChange={handleChange}
                 required
                 max={new Date().toISOString().split('T')[0]}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:border-gold-500 focus:ring-2 focus:ring-gold-500/50 transition-all outline-none"
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white text-sm sm:text-base focus:border-gold-500 focus:ring-2 focus:ring-gold-500/50 transition-all outline-none"
               />
             </div>
           </div>
 
           {/* Relation */}
           <div>
-            <label className="block text-gray-300 font-medium mb-2">
+            <label className="block text-gray-300 font-medium mb-2 text-sm sm:text-base">
               Relation <span className="text-gold-500">नाते</span>
             </label>
             <select
@@ -245,7 +245,7 @@ const AddRecord = () => {
               value={formData.relation}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:border-gold-500 focus:ring-2 focus:ring-gold-500/50 transition-all outline-none"
+              className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white text-sm sm:text-base focus:border-gold-500 focus:ring-2 focus:ring-gold-500/50 transition-all outline-none"
             >
               <option value="">Select relation</option>
               {relations.map((relation) => (
@@ -257,13 +257,13 @@ const AddRecord = () => {
           </div>
 
           {/* Buttons */}
-          <div className="flex gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
             <motion.button
               type="submit"
               disabled={loading}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex-1 bg-gradient-to-r from-gold-600 to-gold-500 text-black font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-gold-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="flex-1 bg-gradient-to-r from-gold-600 to-gold-500 text-black font-bold py-3 px-4 sm:px-6 rounded-lg shadow-lg hover:shadow-gold-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base min-h-[44px]"
             >
               <FaSave />
               {loading ? 'Saving...' : 'Save Record'}
@@ -274,7 +274,7 @@ const AddRecord = () => {
               onClick={handleReset}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="px-6 py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all flex items-center gap-2"
+              className="sm:w-auto px-4 sm:px-6 py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all flex items-center justify-center gap-2 text-sm sm:text-base min-h-[44px]"
             >
               <FaTimes />
               Reset
