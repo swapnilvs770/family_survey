@@ -14,7 +14,8 @@ export default {
         },
       },
       fontFamily: {
-        'marathi': ['Noto Sans Devanagari', 'sans-serif'],
+        marathi: ['Noto Sans Devanagari', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'], // ✅ add this
       },
     },
   },

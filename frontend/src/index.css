@@ -10,7 +10,8 @@
   }
 
   body {
-    @apply font-['Inter',sans-serif] antialiased;
+    font-family: 'Inter', sans-serif;
+    @apply antialiased;
   }
 
   html {
@@ -19,6 +20,7 @@
 }
 
 @layer components {
+
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     @apply w-2 h-2;
